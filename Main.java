@@ -41,7 +41,7 @@ public class Main {
 
 // COMPRESS STRING
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -95,6 +95,52 @@ public class Main{
         System.out.println(c2);
     }
 
-}
+}*/
 
 //------------------------------------------------------------------------------------------------------
+
+// TCS TEST QUESTION
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int d=scn.nextInt();
+        int arr1[]=new int[n];
+        int arr2[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr1[i]=scn.nextInt();
+        }
+        for(int i=0;i<n;i++){
+            arr2[i]=scn.nextInt();
+        }
+
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<arr1.length;i++){
+            for(int j=i+1;j< arr1.length;j++){
+
+                if((arr1[i]-arr1[j]<d && arr1[i]-arr1[j]>=0) || (arr1[j]-arr1[i]<d && arr1[j]-arr1[i]>=0)){
+                    int sum=arr2[i]+arr2[j];
+                    if(sum>max){
+                        max=sum;
+                    }
+                }
+
+            }
+        }
+
+        if(max==Integer.MIN_VALUE){
+            for(int i=0;i<n;i++){
+                if(max<arr2[i]){
+                    max=arr2[i];
+                }
+            }
+        }
+
+        System.out.println(max);
+    }
+}
